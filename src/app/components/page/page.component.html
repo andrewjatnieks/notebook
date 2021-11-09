@@ -1,0 +1,18 @@
+
+
+<div #container class="note-page-container">
+    <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+    <h1 class="note-page-title" >Page {{this.pageNumber}}</h1>
+    <div class="x-button" (click)="onXbuttonClick()"></div>
+
+    
+        <div class="note-page-content">
+            <textarea class="textarea" name="noteContent" [ngModel]="note.note" placeholder="Start taking notes!" rows="10">{{ note }}</textarea>
+        </div>
+        <div class="field is-pulled-right">
+            <div class="control">
+                <button class="button is-small is-success" type="submit" [disabled]="noteForm.pristine">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

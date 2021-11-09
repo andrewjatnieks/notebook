@@ -1,0 +1,23 @@
+.main-container{
+    padding: 100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.page-listing{
+    margin-top: 40px;
+}
+
+
+.add-note{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+app-page{
+    display: block;
+    margin-bottom: 45px;
+}

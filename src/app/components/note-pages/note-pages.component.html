@@ -1,0 +1,10 @@
+
+<div class="main-container">
+    <div class="page-listing">
+        <app-page *ngFor="let note of notes; index as i" (delete)="deleteNote(i)" [pageNumber]="note.pageNumber" [note]="note.note"></app-page>
+    </div>
+</div>
+
+<div class="add-note">
+    <button class="button is-danger" (click)="onAdd()">+ Add Note</button>
+</div>
