@@ -22,37 +22,30 @@ export class NotePagesComponent implements OnInit {
   ngOnInit(): void {
     //retrieve all notes
     this.notes = this.notesService.getAllNotes();
-    //
+    console.log(localStorage.length);    
 
   }
-
-
 
   getPageNumber(note: Note){
     return note.pageNumber;
   }
 
   onAdd(){
-    let notes = this.notesService.getAllNotes();
-    
-    if(notes.length >= 5){
+    let currentNotes = this.notesService.getAllNotes();
+    if(currentNotes.length >= 5){
       return;
     }
-    
-    if(notes.length >= 1 && notes.length < 5){
-      
-      console.log(notes[notes.length - 1]);
-      let newNotePageNumber = notes.pop().pageNumber;
-      var holder: number = +newNotePageNumber;
+    if(currentNotes.length >= 1 && currentNotes.length < 5){
       let note = new Note;
-      note.pageNumber = (holder).toString();
+      note.pageNumber = currentNotes.length+1;
       note.note = '';
-      //let nextPageNumber = notes[notes.length - 1].pageNumber
-      
       this.notesService.add({pageNumber: note.pageNumber, note: note.note})
+    }else{
+      if(currentNotes.length < 1){
+        this.notesService.add({pageNumber: currentNotes.length + 1, note: ''})
+      }
     }
-    this.notesService.add({pageNumber: (notes.length + 1).toString(), note: ''})
-    
+    return;
   }
 
   deleteNote(id: number){

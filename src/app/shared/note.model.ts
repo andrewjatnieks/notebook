@@ -1,4 +1,4 @@
 export class Note {
-    public pageNumber: String;
+    public pageNumber: Number;
     public note: String
 }

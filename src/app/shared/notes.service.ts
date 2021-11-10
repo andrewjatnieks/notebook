@@ -35,11 +35,13 @@ export class NotesService {
 
   add(note: Note){
     let newLength = this.notes.push(note);
+    //localStorage.setItem('notes', JSON.stringify(this.notes))
+    //console.log('local storage on add', localStorage)
     let index = newLength - 1;
     return index;
   }
 
-  update(id: number, pageNumber: string, note: string){
+  update(id: number, pageNumber: number, note: string){
     let page = this.notes[id];
     page.pageNumber = pageNumber;
     page.note = note;
